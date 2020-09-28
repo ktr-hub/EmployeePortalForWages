@@ -9,7 +9,7 @@ namespace EmployeePortalForWages
         public const int FULL_TIME = 1;
         public const int PART_TIME = 0;
 
-        public static Double calculateWage(Double workingHrsPerDay, Double maxWorkingHrs,Double maxWorkingDays)
+        public static void calculateWage(string companyName,Double workingHrsPerDay, Double maxWorkingHrs,Double maxWorkingDays)
         {
             Double workingHrs = 0;
             Double workingDays = 0;
@@ -19,7 +19,7 @@ namespace EmployeePortalForWages
                 workingHrs = workingHrs + workingHrsPerDay;
                 workingDays++;
             }
-            return workingDays * workingHrsPerDay * RATE_PER_HOUR;
+            Console.WriteLine(" In "+ companyName +" "+ workingDays * workingHrsPerDay * RATE_PER_HOUR);
         }
 
         static void Main(string[] args)
@@ -44,7 +44,7 @@ namespace EmployeePortalForWages
                     break;
             }
 
-            Console.WriteLine("Total Wage till the condition reached : " + calculateWage(workingHrsPerDay,maxWorkingHrs,maxWorkingDays));
+           calculateWage("capgemini",workingHrsPerDay,maxWorkingHrs,maxWorkingDays);
         }
     }
 }
