@@ -2,14 +2,10 @@
 
 namespace EmployeePortalForWages
 {
-
-    class Program
+    class Company
     {
 
-        public const int FULL_TIME = 1;
-        public const int PART_TIME = 0;
-
-        public static void calculateWage(string companyName,Double workingHrsPerDay, Double maxWorkingHrs,Double maxWorkingDays)
+        public void calculateWage(string companyName, Double workingHrsPerDay, Double maxWorkingHrs, Double maxWorkingDays)
         {
             Double workingHrs = 0;
             Double workingDays = 0;
@@ -19,8 +15,14 @@ namespace EmployeePortalForWages
                 workingHrs = workingHrs + workingHrsPerDay;
                 workingDays++;
             }
-            Console.WriteLine(" In "+ companyName +" "+ workingDays * workingHrsPerDay * RATE_PER_HOUR);
+            Console.WriteLine(" In " + companyName + " " + workingDays * workingHrsPerDay * RATE_PER_HOUR);
         }
+    }
+    class Program
+    {
+
+        public const int FULL_TIME = 1;
+        public const int PART_TIME = 0;
 
         static void Main(string[] args)
         {
@@ -44,7 +46,8 @@ namespace EmployeePortalForWages
                     break;
             }
 
-           calculateWage("capgemini",workingHrsPerDay,maxWorkingHrs,maxWorkingDays);
+            Company capgemini = new Company();
+            capgemini.calculateWage("capgemini",workingHrsPerDay,maxWorkingHrs,maxWorkingDays);
         }
     }
 }
