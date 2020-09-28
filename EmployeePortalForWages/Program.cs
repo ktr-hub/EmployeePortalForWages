@@ -22,16 +22,17 @@ namespace EmployeePortalForWages
             Random random = new Random();
             int empType = random.Next(0, 2);
 
-            if (empType==PART_TIME)
-            {
-                fullDayHrs = 8;
-                wagePerHour = 15;
-                Console.WriteLine("Part Time Employee Details ");
+            switch (empType) {
+                case PART_TIME :
+                    fullDayHrs = 8;
+                    wagePerHour = 15;
+                    Console.WriteLine("Part Time Employee Details ");
+                    break;
+                default:
+                    Console.WriteLine("Full Time Employee Details ");
+                    break;
             }
-            else
-            {
-                Console.WriteLine("Full Time Employee Details ");
-            }
+
 
             Console.WriteLine("Daily Wage : " + calculateDailyWage(fullDayHrs, wagePerHour));
         }
