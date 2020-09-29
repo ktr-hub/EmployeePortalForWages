@@ -4,7 +4,7 @@ namespace EmployeePortalForWages
 {
     class Company
     {
-
+        public double salary;
         public void calculateWage(string companyName, Double workingHrsPerDay, Double maxWorkingHrs, Double maxWorkingDays)
         {
             Double workingHrs = 0;
@@ -15,7 +15,8 @@ namespace EmployeePortalForWages
                 workingHrs = workingHrs + workingHrsPerDay;
                 workingDays++;
             }
-            Console.WriteLine(" In " + companyName + " " + workingDays * workingHrsPerDay * RATE_PER_HOUR);
+            salary = workingDays * workingHrsPerDay * RATE_PER_HOUR;
+            Console.WriteLine(" In " + companyName + " " + salary);
         }
     }
     class Program
