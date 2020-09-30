@@ -30,13 +30,10 @@ namespace EmployeePortalForWages
                     break;
             }
 
-            EmpWageBuilder capgemini = new EmpWageBuilder();
-            capgemini.addCompanyWage("capgemini", empRatePerHour, numOfWorkingDays, workingHrs);
-            Console.WriteLine(" Total wage in capgemini: " + capgemini.getTotalWage("capgemini"));
-
-            EmpWageBuilder xyz = new EmpWageBuilder(); 
-            capgemini.addCompanyWage("xyz", 10, 20, 12);
-            Console.WriteLine(" Total wage in xyz: " + capgemini.getTotalWage("xyz"));
+            EmpWageBuilder company = new EmpWageBuilder();
+            company.addCompanyWage("capgemini", empRatePerHour, numOfWorkingDays, workingHrs);
+            company.addCompanyWage("xyz", 10, 20, 12);
+            company.setWage();
         }
     }
 }

@@ -6,11 +6,11 @@ namespace EmployeePortalForWages
 {
     class Company
     {
-        String company;
-        Double empRatePerHour;
-        Double numOfWorkingDays;
-        Double workingHrs;
-        Double salary;
+        public String company;
+        public Double empRatePerHour;
+        public Double numOfWorkingDays;
+        public Double workingHrs;
+        public Double salary;
         public Company(String company, Double empRatePerHour, Double numOfWorkingDays, Double workingHrs)
         {
             this.company = company;
@@ -27,5 +27,11 @@ namespace EmployeePortalForWages
         {
             return this.salary;
         }
+
+        public string toString()
+        {
+            return (this.company + " salary is " + this.salary);
+        }
+
     }
 }

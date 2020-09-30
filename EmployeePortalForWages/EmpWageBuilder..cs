@@ -4,22 +4,34 @@ using System.Text;
 
 namespace EmployeePortalForWages
 {
-    class EmpWageBuilder:ComputeEmpWage
+    class EmpWageBuilder:IComputeEmpWage
     {
-        List<Company> companyList;
-        Dictionary<string, Double> companySalary;
+        List<Company> companyList = new List<Company>();
+        Dictionary<string, Company> companySalary = new Dictionary<string, Company>();
         public void addCompanyWage(String company, Double empRatePerHour, Double numOfWorkingDays, Double workingHrs)
         {
             Company companyObject = new Company(company, empRatePerHour,  numOfWorkingDays, workingHrs);
-            companyList = new List<Company>();
             companyList.Add(companyObject);
-            companySalary = new Dictionary<string, double>();
-            companySalary[company] = empRatePerHour * numOfWorkingDays * workingHrs;
+            companySalary.Add(company,companyObject);
+        }
+
+        public void setWage()
+        {
+            foreach(Company company in this.companyList)
+            {
+                company.setSalary(this.computeWage(company));
+                Console.WriteLine(company.toString());
+            }
+        }
+
+        private Double computeWage(Company company)
+        {
+            return company.empRatePerHour *  company.numOfWorkingDays * company.workingHrs;
         }
 
         public Double getTotalWage(string company)
         {
-            return companySalary[company];
+            return companySalary[company].getSalary();
         }
     }
 }

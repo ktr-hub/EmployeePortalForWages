@@ -4,9 +4,11 @@ using System.Text;
 
 namespace EmployeePortalForWages
 {
-    interface ComputeEmpWage
+    interface IComputeEmpWage
     {
         public void addCompanyWage(String company,Double empRatePerHour,Double numOfWorkingDays,Double workingHrs);
+
+        public void setWage();
 
         public Double getTotalWage(string company);
     }
