@@ -10,29 +10,9 @@ namespace EmployeePortalForWages
 
         static void Main(string[] args)
         {
-
-            Double empRatePerHour = 100;
-            Double workingHrs = 10;
-            Double numOfWorkingDays = 20;
-
-            Random random = new Random();
-            int empType = random.Next(0, 2);
-
-            switch (empType) {
-                case PART_TIME :
-                    empRatePerHour = 80;
-                    workingHrs = 8;
-                    numOfWorkingDays = 15;
-                    Console.WriteLine("Part Time Employee Details in following companies");
-                    break;
-                default:
-                    Console.WriteLine("Full Time Employee Details in following companies");
-                    break;
-            }
-
             EmpWageBuilder company = new EmpWageBuilder();
-            company.addCompanyWage("capgemini", empRatePerHour, numOfWorkingDays, workingHrs);
-            company.addCompanyWage("xyz", 10, 20, 12);
+            company.addCompanyWage("capgemini", 15, 150, 9);
+            company.addCompanyWage("xyz", 10, 200, 12);
             company.setWage();
         }
     }

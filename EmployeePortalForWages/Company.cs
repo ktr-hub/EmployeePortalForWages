@@ -8,14 +8,15 @@ namespace EmployeePortalForWages
     {
         public String company;
         public Double empRatePerHour;
-        public Double numOfWorkingDays;
+        public Double maxWorkingHrs;
         public Double workingHrs;
-        public Double salary;
-        public Company(String company, Double empRatePerHour, Double numOfWorkingDays, Double workingHrs)
+        public Double salary; //monthly
+        public Double dailyWage;
+        public Company(String company, Double empRatePerHour, Double maxWorkingHrs, Double workingHrs)
         {
             this.company = company;
             this.empRatePerHour = empRatePerHour;
-            this.numOfWorkingDays = numOfWorkingDays;
+            this.maxWorkingHrs = maxWorkingHrs;
             this.workingHrs = workingHrs;
         }
         public void setSalary(Double salary)
@@ -28,9 +29,20 @@ namespace EmployeePortalForWages
             return this.salary;
         }
 
-        public string toString()
+        public void setDailyWage(Double dailyWage)
         {
-            return (this.company + " salary is " + this.salary);
+            this.dailyWage = dailyWage;
+        }
+
+        public double getDailyWage()
+        {
+            return this.dailyWage;
+        }
+
+        public void toString()
+        {
+            Console.WriteLine(this.company + " Daily Salary " + this.dailyWage);
+            Console.WriteLine(this.company + " Monthly Salary " + this.salary);
         }
 
     }
