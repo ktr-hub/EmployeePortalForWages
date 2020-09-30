@@ -6,10 +6,13 @@ namespace EmployeePortalForWages
 {
     class EmpWageBuilder:ComputeEmpWage
     {
+        List<Company> companyList;
         Dictionary<string, Double> companySalary;
         public void addCompanyWage(String company, Double empRatePerHour, Double numOfWorkingDays, Double workingHrs)
         {
             Company companyObject = new Company(company, empRatePerHour,  numOfWorkingDays, workingHrs);
+            companyList = new List<Company>();
+            companyList.Add(companyObject);
             companySalary = new Dictionary<string, double>();
             companySalary[company] = empRatePerHour * numOfWorkingDays * workingHrs;
         }
